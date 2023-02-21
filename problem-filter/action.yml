@@ -15,5 +15,5 @@ outputs:
   errors:
     description: 'JSON array of error messages during execution of shell'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'

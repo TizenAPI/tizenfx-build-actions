@@ -19,5 +19,5 @@ outputs:
   data:
     description: The branch metadata described in .github/branch-metadata.yml
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
