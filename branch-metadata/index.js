@@ -13,7 +13,7 @@ async function run() {
 
     // Load Branch Metadata File
     const content = await downloadMetadata(token, repo, path);
-    const metadata = yaml.safeLoad(content);
+    const metadata = yaml.load(content);
 
     // Set Output
     let branch = ref;
@@ -46,7 +46,7 @@ async function run() {
 async function downloadMetadata(token, repo, path) {
   const repoArr = repo.split('/');
   const octokit = github.getOctokit(token);
-  const res = await octokit.repos.getContent({
+  const res = await octokit.rest.repos.getContent({
     owner: repoArr[0],
     repo: repoArr[1],
     path,
