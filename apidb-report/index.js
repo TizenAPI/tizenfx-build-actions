@@ -29,7 +29,7 @@ async function run() {
     // Create comment
     if (comp.totalChanged) {
       const report = makeReport(comp);
-      await octokit.issues.createComment({
+      await octokit.rest.issues.createComment({
         owner: repoArr[0],
         repo: repoArr[1],
         issue_number: issueNumber,
