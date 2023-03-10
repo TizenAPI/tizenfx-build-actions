@@ -13,7 +13,7 @@ async function run() {
 
     let workflowId = workflowFile;
     if (!workflowId && workflowName) {
-      const resp = await octokit.actions.listRepoWorkflows({
+      const resp = await octokit.rest.actions.listRepoWorkflows({
         owner: github.context.repo.owner,
         repo: github.context.repo.repo,
       });
@@ -27,7 +27,7 @@ async function run() {
       throw new Error('Can not find a workflow.');
     }
 
-    const resp = await octokit.actions.createWorkflowDispatch({
+    const resp = await octokit.rest.actions.createWorkflowDispatch({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
       workflow_id: workflowId,
